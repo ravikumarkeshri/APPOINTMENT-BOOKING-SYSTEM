@@ -2,12 +2,10 @@ import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// import { BASE_URL } from "../config";
+import { BASE_URL } from "../config";
 import HashLoader from "react-spinners/HashLoader";
 // import { authContext } from "../context/authContext.jsx";
 import { authContext } from "../context/authContext";
-
-
 
 
 const Login = () => {
@@ -24,7 +22,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch(`dummyjson/auth/login`, {
+      const res = await fetch(`${BASE_URL}/auth/login`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +34,6 @@ const Login = () => {
       if (!res.ok) {
         throw new Error(result.message);
       }
-
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import { doctors } from "../../assets/data/doctors";
 
 
 const ServiceCard = ({ index, item }) => {
@@ -15,12 +16,24 @@ const ServiceCard = ({ index, item }) => {
                 {desc}
             </p>
             <div className="flex items-center justify-between mt-[30px]">
-                <Link
-                    to={"/doctors"}
-                    className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E]  flex items-center justify-center hover:bg-primaryColor hover:border-none group"
-                >
-                    <BsArrowRight className="group-hover:text-white w-6 h-5" />
-                </Link>
+                {/* {
+                    doctors.map((doctor) => (
+
+                        <Link key={doctor.id}
+                            to={`/doctors/:${doctor.id}`}
+                            className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E]  flex items-center justify-center hover:bg-primaryColor hover:border-none group"
+                        >
+                            <BsArrowRight className="group-hover:text-white w-6 h-5" />
+                        </Link>
+                    ))
+                } */}
+                <Link 
+                            to={`/doctors`}
+                            className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E]  flex items-center justify-center hover:bg-primaryColor hover:border-none group"
+                        >
+                            <BsArrowRight className="group-hover:text-white w-6 h-5" />
+                        </Link>
+
                 <span className="w-[44px] h-[44px] flex justify-center items-center text-[18px] leading-[30px] font-[600]" style={{ background: `${bgColor}`, color: `${textColor}`, borderRadius: '6px 0 0 6px' }}>{index + 1}
                 </span>
             </div>

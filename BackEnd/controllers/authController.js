@@ -10,7 +10,6 @@ const generateToken = user => {
 }
 export const register = async (req, res) => {
     const { email, password, name, role, photo, gender } = req.body
-
     try {
         let user = null;
 
@@ -46,7 +45,7 @@ export const register = async (req, res) => {
             user = new Doctor({
                 name,
                 email,
-                password,
+                password :hashPassword,
                 photo,
                 gender,
                 role
@@ -54,6 +53,7 @@ export const register = async (req, res) => {
         }
         await user.save();
         res.status(200).json({ success: true, message: 'User successfully created' })
+        console.log("user: ",user)
     } catch (err) {
         console.log(err)
         res.status(500).json({ success: false, message: 'Internal server error, Try agian' })

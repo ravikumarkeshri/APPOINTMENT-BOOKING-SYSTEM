@@ -4,6 +4,7 @@ import logo from '../../assets/images/logo.png'
 import userImg from '../../assets/images/avatar-icon.png'
 import { Link, NavLink } from 'react-router-dom'
 import { BiMenu } from 'react-icons/bi'
+
 import { authContext } from '../../context/authContext'
 
 const Header = () => {
@@ -77,7 +78,7 @@ const Header = () => {
                         {
                             token && user ? (
                                 <div>
-                                    <Link to={`${role === 'doctor' ? '/doctors/profile/me' : 'users/profile/me'}`} className='flex justify-center items-center gap-4'>
+                                    <Link to={`${role === 'doctor' ? '/doctors/profile/me' : 'user/profile/me'}`} className='flex justify-center items-center gap-4'>
                                         <h2>{user.name}</h2>
                                         <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
                                             <img src={user?.photo} className='w-full rounded-full' alt="" />
@@ -89,6 +90,7 @@ const Header = () => {
                                     <button className='bg-primaryColor py-2 px-6 rounded-[50px] h-[44px] flex items-center justify-center text-white font-[600]'>Login</button>
                                 </Link>
                             )
+
                         }
 
                         <span className='md:hidden' onClick={toggleMenu}>

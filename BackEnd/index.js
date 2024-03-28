@@ -8,8 +8,9 @@ import authRoute from './routes/auth.js'
 import userRoute from './routes/user.js'
 import doctorRoute from './routes/doctors.js'
 import reviewRoute from './routes/review.js'
-const PORT = process.env.PORT || 5000
+
 dotenv.config()
+const PORT = process.env.PORT || 5000
 
 
 const app = express()
@@ -39,7 +40,13 @@ const connectDB = async () => {
 app.use(express.json())
 app.use(cors(corsOptions))
 app.use(cookieParser)
-
+app.get('/', (req, res) => {
+    res.send("hello")
+})
+app.get('/home', (req, res) => {
+    // Send a response back to the client
+    res.send('Hello, World! home');
+});
 app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/user', userRoute)
 app.use('/api/v1/doctors', doctorRoute);

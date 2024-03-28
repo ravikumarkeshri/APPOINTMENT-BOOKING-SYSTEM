@@ -6,7 +6,7 @@ import doctorImg04 from "../images/about.png";
 export const doctors = [
   {
     id: "01",
-    name: "Dr. Anil Singh",
+    name: "Dr. Nishant Mishra",
     specialty: "Surgeon",
     avgRating: 4.2,
     totalRating: 403,
@@ -16,7 +16,7 @@ export const doctors = [
   },
   {
     id: "02",
-    name: "Dr. Abhimanyu Sinha",
+    name: "Dr. Ravi Kumar",
     specialty: "Neurologist",
     avgRating: 3.8,
     totalRating: 356,
@@ -26,7 +26,7 @@ export const doctors = [
   },
   {
     id: "03",
-    name: "Dr. Punit Tiwari",
+    name: "Dr. Amit Gupta",
     specialty: "Dermatologist",
     avgRating: 4.9,
     totalRating: 772,
@@ -36,7 +36,7 @@ export const doctors = [
   },
   {
     id: "04",
-    name: "Dr. Rajiv Ranjan",
+    name: "Dr. Sunny Kumar",
     specialty: "Surgeon",
     avgRating: 4.2,
     totalRating: 607,

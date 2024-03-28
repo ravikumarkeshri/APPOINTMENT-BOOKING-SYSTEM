@@ -1,8 +1,8 @@
 import useFetchData from "../../hooks/useFetchData"
 import { BASE_URL } from "../../config"
-import Loading from "../../components/Loader/Loading"
-import Error from "../../components/error/Error"
-import DoctorCard from "../../components/doctors/DoctorCard"
+import Loading from "../../Components/Loader/Loading"
+import Error from "../../Components/error/Error"
+import DoctorCard from "../../Components/doctors/DoctorCard"
 
 const MyBooking = () => {
   const {data:appoinments, loading , error} = useFetchData(`${BASE_URL}/users/appoinments/my-appoinments`)

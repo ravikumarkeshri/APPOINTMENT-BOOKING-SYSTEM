@@ -4,11 +4,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import uploadImageToCloudinary from "../utils/uploadCloudinary";
 import uploadImageToCloudinary from "../utils/uploadCloudinar";
-// import { BASE_URL } from "../config";
+import { BASE_URL } from "../config";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewURL, setPreviewURL] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,11 +21,12 @@ const Signup = () => {
     gender: "",
     role: "patient",
   });
-  const navigate = useNavigate();
+
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  console.log(formData)
 
   const handleFileInputChange = async (e) => {
     const file = e.target.files[0];
@@ -39,21 +41,21 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch(`dummyjson/auth/register`, {
-        method: "post",
+      const res = await fetch(`${BASE_URL}/auth/register`, {
+        method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/JSON",
         },
         body: JSON.stringify(formData),
       });
       const { message } = await res.json();
 
-      if (!res.ok) {
+      if (!res.suce) {
         throw new Error(message);
       }
       setLoading(false);
       toast.success(message);
-      navigate("/login");
+      navigate('/login')
     } catch (err) {
       toast.error(err.message);
       setLoading(false);
