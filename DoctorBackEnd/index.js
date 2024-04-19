@@ -19,9 +19,9 @@ const app = express()
 
 
 const corsOptions = {
-    origin: ["https://appointment-booking-system-8qb3.vercel.app/"],
+    origin:true,
     //origin: [""],
-    Credential: true,
+    
 };
 
 // mongoose.set('strictQuery', false)
