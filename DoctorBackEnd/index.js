@@ -19,8 +19,8 @@ const app = express()
 
 
 const corsOptions = {
-    origin: ["https://appointment-booking-system-owsu.vercel.app/"],
-    // origin:true,
+    // origin: ["https://appointment-booking-system-owsu.vercel.app/"],
+    origin: [""],
     Credential: true,
 };
 
