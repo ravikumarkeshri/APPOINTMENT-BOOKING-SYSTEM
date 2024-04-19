@@ -45,6 +45,10 @@ const Header = () => {
             path: "/contact",
             display: "Contact"
         },
+        // {
+        //     path: "/sysmptoms",
+        //     display: "Sysmptoms Of"
+        // },
     ]
 
 

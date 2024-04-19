@@ -24,7 +24,13 @@ const Profile = ({ userData }) => {
 
   useEffect(() => {
     console.log("user", user)
-    setFormData({ name: user.name, email: user.email, password: user.password, photo: user.photo, gender: user.gender, bloodType: user.bloodType })
+    setFormData({
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      photo: user.photo, gender: user.gender,
+      bloodType: user.bloodType
+    })
   }, [user])
   const navigate = useNavigate();
 

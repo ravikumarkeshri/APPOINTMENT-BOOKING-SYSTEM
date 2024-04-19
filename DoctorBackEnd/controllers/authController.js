@@ -97,7 +97,7 @@ export const register = async (req, res) => {
         }
 
         // user = {...user, token}
-        await user.save(); 
+        await user.save();
         res.status(200)
         // res.set('Content-Type', 'application/json');
         res.json({ success: true, message: 'User successfully created' })

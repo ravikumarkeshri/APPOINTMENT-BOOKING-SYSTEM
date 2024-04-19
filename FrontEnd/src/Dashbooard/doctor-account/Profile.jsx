@@ -12,6 +12,7 @@ const Profile = ({ doctorData }) => {
         bio: '',
         gender: '',
         ticketPrice: '',
+        specialization: '',
         qualifications: [],
         experiences: [],
         timeSlots: [],
@@ -29,6 +30,7 @@ const Profile = ({ doctorData }) => {
             bio: doctorData?.bio,
             gender: doctorData?.gender,
             ticketPrice: doctorData?.ticketPrice,
+            specialization: doctorData?.specialization,
             qualifications: doctorData?.qualifications,
             experiences: doctorData?.experiences,
             timeSlots: doctorData?.timeSlots,
@@ -91,7 +93,7 @@ const Profile = ({ doctorData }) => {
     const addQualification = (e) => {
         e.preventDefault();
         addItems('qualifications', {
-            startingDate: '', endingDate: '', degree: 'PHD', university: 'PatliPutraUniversity'
+            startingDate: '', endingDate: '', degree: '', university: ''
         })
     }
     const handleQualificationChange = (event, index) => {
@@ -107,7 +109,7 @@ const Profile = ({ doctorData }) => {
         e.preventDefault();
         addItems('experiences', {
 
-            startingDate: '', endingDate: '', position: 'Surgeon', hospital: 'PMCH'
+            startingDate: '', endingDate: '', position: '', hospital: ''
         })
     }
     const handleExperienceChange = (event, index) => {
@@ -123,7 +125,7 @@ const Profile = ({ doctorData }) => {
         e.preventDefault();
         addItems('timeSlots', {
 
-            day: 'Sunday', startingTime: '10:00', endingTime: '04:00'
+            day: '', startingTime: '', endingTime: ''
         })
     }
     const handleTimeSlotChange = (event, index) => {

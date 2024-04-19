@@ -1,18 +1,24 @@
 import React from 'react'
-import { BiMenu } from 'react-icons/bi'
+// import { BiMenu } from 'react-icons/bi'
 import { useContext } from 'react'
 import { authContext } from '../../context/authContext'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 
 const Tabs = ({ tab, setTab }) => {
-    const dispatch = useContext(authContext)
+    const {dispatch} = useContext(authContext)
     const navigate = useNavigate();
 
+    // const handleLogout = () => {
+    //     dispatch({ type: 'LOGOUT' })
+    //     navigate('/')
+    // }
     const handleLogout = () => {
-        dispatch({ type: 'LOGOUT' })
-        navigate('/')
-    }
+        dispatch({ type: "LOGOUT" });
+        toast.warning('Logged Out')
+        navigate('/home')
+    };
     return (
         <div className='border-2 border-black '>
             {/* <span className='lg:hidden'>

@@ -8,15 +8,15 @@ import DoctorAbout from '../../Pages/Doctor/DoctorAbout'
 import Profile from './Profile'
 import Loader from '../../Components/Loader/Loading'
 import doctorImg from '../../assets/images/doctor-img02.png'
-// import { authContext } from '../../context/authContext'
+import { authContext } from '../../context/authContext'
 
 
 const Dashboard = () => {
-    // const { user } = useContext(authContext)
+    const { dispatch, user } = useContext(authContext)
     const { data, loading, error } = useFetchData(`${BASE_URL}/doctors/profile/me`)
     const [tab, setTab] = useState('overview')
-    // console.log("data ", data);
-    console.log('Doctor: ', data)
+    // console.log("data ", user);
+    console.log('Doctor Object: ', data)
 
     return (
         <section>
@@ -51,7 +51,7 @@ const Dashboard = () => {
                                                 <span className='bg-[#ccf0f3] text-irisBlueColor py-1 lg:py-2 lg:px-6 rounded-sm text-[12px] lg:text-[16px] leading-4 lg:leading-6 font-semibold'>
                                                     {/* {data.specialization} */}{"surgeon"}
                                                 </span>
-                                                <h3 className='text-[22px] leading-9 font-bold text-headingColor mt-3'>{data.name}</h3>
+                                                <h3 className='text-[22px] leading-9 font-bold text-headingColor mt-3'>{user.name}</h3>
                                                 <div className='flex items-center gap-[6px]'>
                                                     <span className='flex items-center gap-[6px] text-headingColor text-[14px] leading-5 lg:text[18px] lg:leading-6 font-semibold'>
                                                         <img src={starIcon} alt="" />
@@ -59,11 +59,12 @@ const Dashboard = () => {
                                                     </span>
                                                     <span className=' text-headingColor text-[14px] leading-5 lg:text[18px] lg:leading-6 font-semibold'>
 
-                                                        ( {data?.totalRating})
+                                                        ( {user?.totalRating})
                                                     </span>
                                                 </div>
                                                 <p className='text__para font-[15px] lg:max-w-[390px] leading-5'>
-                                                    {/* {data?.bio} */}{'Achha Doctor Tha'}
+                                                    {user?.bio}
+                                                    {/* {'Achha Doctor Tha'} */}
                                                 </p>
                                             </div>
 
@@ -74,15 +75,15 @@ const Dashboard = () => {
 
 
                                         <DoctorAbout
-                                            name={data.name}
-                                            about={data.about}
-                                            qualification={data.qualification}
-                                            experiences={data.experiences}
+                                            name={user.name}
+                                            about={user.about}
+                                            qualification={user.qualification}
+                                            experiences={user.experiences}
                                         />
                                     </div>
                                 }
                                 {tab === 'appointment' && <div>Appointment</div>}
-                                {tab === 'settings' && <Profile doctorData={data} />}
+                                {tab === 'settings' && <Profile doctorData={user} />}
 
                             </div>
 

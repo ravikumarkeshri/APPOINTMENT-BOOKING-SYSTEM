@@ -4,7 +4,7 @@ import Doctor from '../models/DoctorSchema.js'
 
 export const authenticate = async (req, res, next) => {
     const authToken = req.headers.authorization
-    console.log(authToken);
+    // console.log(authToken);
 
 
     // check is token exist
@@ -13,7 +13,7 @@ export const authenticate = async (req, res, next) => {
     }
 
     try {
-        console.log(authToken);
+        // console.log(authToken);
         const token = authToken.split(' ')[1]
 
         // verify token
@@ -35,6 +35,7 @@ export const authenticate = async (req, res, next) => {
 
 export const restrict = roles => async (req, res, next) => {
     const userId = req.userId;
+    // const doctorId = req.doctorId;
     let user;
 
     const patient = await User.findById(userId);
