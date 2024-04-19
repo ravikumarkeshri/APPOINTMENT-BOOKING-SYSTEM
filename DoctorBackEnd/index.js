@@ -46,9 +46,22 @@ app.use(cookieParser())
 app.get('/', (req, res) => {
     res.send("hello")
 })
-app.get('/home', (req, res) => {
-    // Send a response back to the client
-    res.send('Hello, World! home');
+app.get('/test', (req, res) => {
+    // Send an HTML response back to the client
+    res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hello, World! home</title>
+        </head>
+        <body>
+            <h2>Hello, World! home</h2>
+            <!-- You can add more HTML content here -->
+        </body>
+        </html>
+    `);
 });
 app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/users', userRoute)
