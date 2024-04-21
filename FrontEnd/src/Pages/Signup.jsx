@@ -48,13 +48,15 @@ const Signup = () => {
         },
         body: JSON.stringify(formData),
       });
-      const { message } = await res.json();
+      // const { message } = await res.json();
+      const result = await res.json();
+
 
       if (!res.ok) {
-        throw new Error(message);
+        throw new Error(result.message);
       }
       setLoading(false);
-      toast.success(message);
+      toast.success(result.message);
       navigate('/login')
     } catch (err) {
       toast.error(err.message);
