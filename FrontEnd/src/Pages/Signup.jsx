@@ -50,7 +50,7 @@ const Signup = () => {
       });
       const { message } = await res.json();
 
-      if (!res.suce) {
+      if (!res.success) {
         throw new Error(message);
       }
       setLoading(false);
