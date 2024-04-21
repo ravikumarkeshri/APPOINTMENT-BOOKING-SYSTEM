@@ -3,7 +3,7 @@ import User from '../models/UserSchema.js'
 import Doctor from '../models/DoctorSchema.js'
 
 export const authenticate = async (req, res, next) => {
-    const authToken = req.headers.authorization
+    const authToken = await req.headers.authorization
     // console.log(authToken);
 
 
